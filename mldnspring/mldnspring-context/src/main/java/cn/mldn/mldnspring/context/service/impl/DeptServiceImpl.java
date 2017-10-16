@@ -12,6 +12,9 @@ import cn.mldn.mldnspring.context.vo.Dept;
 public class DeptServiceImpl implements IDeptService {
 	@Resource	// <property name="deptDAO" ref="deptDAO"/>
 	private IDeptDAO deptDAO;
+	public void setDeptDAO(IDeptDAO deptDAO) {
+		this.deptDAO = deptDAO;
+	}
 	@Override
 	public boolean add(Dept dept) {
 		System.out.println("******** Dept业务层调用 *********");

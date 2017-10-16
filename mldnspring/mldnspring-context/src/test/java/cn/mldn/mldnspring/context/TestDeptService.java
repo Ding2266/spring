@@ -13,7 +13,7 @@ import junit.framework.TestCase;
 @ContextConfiguration(locations = {"classpath:spring/spring-context.xml"}) //进行资源文件定位
 @RunWith(SpringJUnit4ClassRunner.class)
 public class TestDeptService extends TestCase{
-	@Resource
+	@Resource(name="deptServiceNew")
 	private IDeptService deptService ; 
 	@Test
 	public void testAdd() {
