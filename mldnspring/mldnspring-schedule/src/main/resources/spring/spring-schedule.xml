@@ -6,16 +6,11 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.3.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
-	<!-- 将定时任务的调度类配置在Spring容器里面 -->
-	<bean id="myTask" class="cn.mldn.mldnspring.schedule.task.MyTask"/>
-	<task:scheduled-tasks> <!-- 进行SpringTask的任务调度配置 -->
-		<!-- <task:scheduled ref="myTask" method="runJobTask" fixed-rate="1000"/> --> <!-- 定义要使用的任务类和方法,fixed-rate表示间隔触发 -->
-		<task:scheduled ref="myTask" method="runJobTask" cron="* * * * * ?"/> <!-- 使用cron -->
-	</task:scheduled-tasks>
 	
 	<!-- 以前要写这个配置项，现在不写也可以了 -->
 	<context:annotation-config/>
 	<!-- 定义注解的扫描包，也就是说你必须 配置好扫描包之后才可以扫描该包中所有类上的注解信息-->
 	<!-- <context:component-scan base-package="cn.mldn.mldnspring.context.dao,cn.mldn.mldnspring.context.service"/> -->
-	<context:component-scan base-package="cn.mldn.mldnspring.context"/>
+	<context:component-scan base-package="cn.mldn.mldnspring"/>
+	<task:annotation-driven/> <!-- 启用Annotation的SpringTask配置 -->
 </beans>
