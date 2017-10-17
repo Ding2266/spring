@@ -11,7 +11,7 @@ import junit.framework.TestCase;
 
 @ContextConfiguration(locations= {"classpath:spring/spring-*.xml"})
 @RunWith(SpringJUnit4ClassRunner.class)
-public class TestScheduleQuartZ extends TestCase {
+public class TestScheduleTask extends TestCase {
 	@Test
 	public void testMyTask() {
 		try {
