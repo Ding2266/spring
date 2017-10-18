@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	<!-- 此时就将数据库的连接对象交由Spring负责管理 -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="org.gjt.mm.mysql.Driver"/>
+		<property name="url" value="jdbc:mysql://localhost:3306/mldn"/>
+		<property name="username" value="root"/>
+		<property name="password" value="mysqladmin"/>
+	</bean>
+	
+	<!-- 以前要写这个配置项，现在不写也可以了 -->
+	<context:annotation-config/>
+	<!-- 定义注解的扫描包，也就是说你必须 配置好扫描包之后才可以扫描该包中所有类上的注解信息-->
+	<!-- <context:component-scan base-package="cn.mldn.mldnspring.context.dao,cn.mldn.mldnspring.context.service"/> -->
+	<context:component-scan base-package="cn.mldn.mldnspring"/>
+	
+</beans>
