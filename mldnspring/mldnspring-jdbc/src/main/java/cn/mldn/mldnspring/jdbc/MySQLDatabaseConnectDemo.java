@@ -2,6 +2,7 @@ package cn.mldn.mldnspring.jdbc;
 
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
+
 public class MySQLDatabaseConnectDemo {
 	public static final String DRIVER = "org.gjt.mm.mysql.Driver" ;
 	public static final String URL = "jdbc:mysql://localhost:3306/mldn" ; 
@@ -16,5 +17,4 @@ public class MySQLDatabaseConnectDemo {
 		System.out.println(dataSource.getConnection());
 		dataSource.getConnection().close();
 	}
-	
 }
