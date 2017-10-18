@@ -8,14 +8,14 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 	<!-- 在开发之中C3P0数据库连接池使用非常广泛 -->
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
-		<property name="driverClass" value="org.gjt.mm.mysql.Driver"/>
-		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/mldn"/>
-		<property name="user" value="root"/>
-		<property name="password" value="mysqladmin"/>
-		<property name="maxPoolSize" value="1"/>  <!-- 设置最大连接 -->
-		<property name="initialPoolSize" value="1"/> <!-- 初始化连接池 -->
-		<property name="minPoolSize" value="1"/> <!-- 连接池最小连接数 -->
-		<property name="maxIdleTime" value="1000"/>  <!-- 最大等待时间 -->
+		<property name="driverClass" value="${db.driverClass}"/>
+		<property name="jdbcUrl" value="${db.jdbcUrl}"/>
+		<property name="user" value="${db.user}"/>
+		<property name="password" value="${db.password}"/>
+		<property name="maxPoolSize" value="${db.maxPoolSize}"/>  <!-- 设置最大连接 -->
+		<property name="initialPoolSize" value="${db.initialPoolSize}"/> <!-- 初始化连接池 -->
+		<property name="minPoolSize" value="${db.minPoolSize}"/> <!-- 连接池最小连接数 -->
+		<property name="maxIdleTime" value="${db.maxIdleTime}"/>  <!-- 最大等待时间 -->
 	</bean>
 	
 	<!-- 此时就将数据库的连接对象交由Spring负责管理 -->
