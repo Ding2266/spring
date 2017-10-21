@@ -7,7 +7,7 @@
 	String basePath = request.getScheme() + "://" + 
 		request.getServerName() + ":" + request.getServerPort() + 
 		request.getContextPath() + "/" ;
-	String message_show = basePath + "echo.action "; 
+	String message_show = basePath + "/pages/message/echo.action "; 
 %>
 <base href="<%=basePath%>"/>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

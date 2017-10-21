@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller  //所有需要被Spring管理的程序类一定要进行配置
+@RequestMapping("/pages/message/*")
 public class EchoAction { //定义一个自己的处理程序类
 	private Logger log = LoggerFactory.getLogger(EchoAction.class) ; 
 	@RequestMapping("/echo")  //以后的访问路径就是“echo.action”
