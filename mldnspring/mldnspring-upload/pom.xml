@@ -8,9 +8,9 @@
 		<artifactId>mldnspring</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>mldnspring-springmvc</artifactId>
+	<artifactId>mldnspring-upload</artifactId>
 	<packaging>war</packaging>
-	<name>mldnspring-springmvc Maven Webapp</name>
+	<name>mldnspring-upload Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
 		<dependency>
