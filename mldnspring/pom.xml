@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>cn.mldn</groupId>
@@ -29,6 +28,10 @@
 		<commons-io.version>2.5</commons-io.version>
 
 		<!-- 【AFTER】其它开发包的版本管理【AFTER】 -->
+		
+		<!-- 编写自定义的模块依赖配置 -->
+		<mldnspring.version>0.0.1-SNAPSHOT</mldnspring.version>
+		
 		<!-- 【BEFORE】基础的pom环境属性【BEFORE】 -->
 		<compiler.version>3.6.1</compiler.version>
 		<javadoc.version>2.10.4</javadoc.version>
@@ -63,6 +66,17 @@
 	</profiles>
 	<dependencyManagement>
 		<dependencies>
+			<dependency>
+				<groupId>cn.mldn</groupId>
+				<artifactId>mldnspring-goods-api</artifactId>
+				<version>${mldnspring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.mldn</groupId>
+				<artifactId>mldnspring-goods-service</artifactId>
+				<version>${mldnspring.version}</version>
+			</dependency>
+			
 			<dependency>
 				<groupId>org.apache.cxf</groupId>
 				<artifactId>cxf-rt-frontend-jaxws</artifactId>
@@ -282,5 +296,8 @@
 		<module>mldnspring-springmvc</module>
 		<module>mldnspring-upload</module>
 		<module>mldnspring-interceptor</module>
-	</modules>
+    <module>mldnspring-goods-api</module>
+    <module>mldnspring-goods-service</module>
+    <module>mldnspring-goods-web</module>
+  </modules>
 </project>
