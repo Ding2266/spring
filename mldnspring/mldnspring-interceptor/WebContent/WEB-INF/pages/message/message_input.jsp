@@ -17,13 +17,13 @@
 </head>
 <body>
 	<form action="<%=message_show %>" >
-		<span class="alert-danger">请输入内容：</span><input type="text" id="msg" name="msg"/><br>
+		${errors}
+		<br><span class="alert-danger">请输入内容：</span><input type="text" id="msg" name="msg"/><br>
 		<span class="alert-danger">请选择:</span><input type="checkbox" id="tags" name="tags" value="政治">政治
 			 <input type="checkbox" id="tags" name="tags" value="经济">经济
 			 <input type="checkbox" id="tags" name="tags" value="文化">文化<br>
 			 <input type="submit" value="提交">
 			 <input type="reset" value="重置"><br>
-		<img src="images/hello.png">	 
 	</form>
 </body>
 </html>
