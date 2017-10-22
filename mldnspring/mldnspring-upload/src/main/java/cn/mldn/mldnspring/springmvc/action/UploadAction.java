@@ -22,7 +22,6 @@ public class UploadAction { //定义一个自己的处理程序类
 	public String uploadPre() {
 		return "photo/photo_input" ; 
 	}
-	
 	@RequestMapping("/upload")  //以后的访问路径就是“echo.action”
 	public ModelAndView echo(String msg ,MultipartFile photo) throws Exception{//photo你的表单名称
 		this.log.info("**** EchoAction接收到请求参数，msg = " + msg);
