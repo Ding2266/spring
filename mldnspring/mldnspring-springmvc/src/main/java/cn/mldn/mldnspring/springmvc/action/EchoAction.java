@@ -1,9 +1,13 @@
 package cn.mldn.mldnspring.springmvc.action;
 
 import java.util.Arrays;
+import java.util.Locale;
+
+import javax.annotation.Resource;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -13,9 +17,15 @@ import org.springframework.web.servlet.ModelAndView;
 public class EchoAction { //定义一个自己的处理程序类
 	private Logger log = LoggerFactory.getLogger(EchoAction.class) ; 
 	
+	@Resource
+	private MessageSource messageSource ; 
+	
 	@RequestMapping("echo_pre")
-	public String echoPre() {
-		return "message/message_input"  ;
+	public String echoPro() {
+		System.out.println("【echo.input.page】" + this.messageSource.getMessage("echo.input.page", null, null));
+		System.out.println("【welcome.info】" + this.messageSource.getMessage("welcome.info", new Object [] {"dingding"}, null));
+		//System.out.println("【nothing】" + this.messageSource.getMessage("nothing", null, null));
+		return "message/message_input" ; 
 	}
 	
 	@RequestMapping("/echo")  //以后的访问路径就是“echo.action”
