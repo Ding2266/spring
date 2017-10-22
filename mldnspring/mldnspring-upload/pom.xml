@@ -10,7 +10,7 @@
 	</parent>
 	<artifactId>mldnspring-upload</artifactId>
 	<packaging>war</packaging>
-	<name>mldnspring-upload Maven Webapp</name>
+	<name>mldnspring-springmvc Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
 		<dependency>
@@ -44,7 +44,6 @@
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
 		</dependency>
-
 		<dependency>
 			<groupId>commons-fileupload</groupId>
 			<artifactId>commons-fileupload</artifactId>
@@ -53,7 +52,6 @@
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
 		</dependency>
-		
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-core</artifactId>
@@ -112,11 +110,7 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 		</dependency>
-		<dependency>
-			    <groupId>javax.servlet</groupId>
-			    <artifactId>jstl</artifactId>
-			    <version>${jstl.version}</version>
-			</dependency>
+
 	</dependencies>
 	<build>
 		<finalName>mldnspring-springmvc</finalName>

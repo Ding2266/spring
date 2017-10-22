@@ -1,5 +1,6 @@
 package cn.mldn.util.validate;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,33 +10,30 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.MessageSource;
 
-import cn.mldn.util.ValidationInterceptor;
-
 /**
- * 实现Action数据验证处理类
- * @author Administrator
- *
+ * 实现Action数据的验证处理类
+ * @author mldn
  */
 public class ActionValidationUtil {
-	private Logger logger = LoggerFactory.getLogger(ValidationInterceptor.class) ;
-	private Map<String,String> errors = new HashMap<String,String>() ; //保存错误信息 
-	private String rule ; //保存验证规则
-	private HttpServletRequest request ; //请求对象
-	private MessageSource messageSource ; 
+	private Logger logger = LoggerFactory.getLogger(ActionValidationUtil.class);
+	private Map<String,String> errors = new HashMap<String,String>() ;	// 保存错误信息
+	private String rule ; // 保存验证规则
+	private HttpServletRequest request ; // 请求对象
+	private MessageSource messageSource ;
 	/**
 	 * 实例化Action数据验证工具类对象，在此类之中可以直接实现数据验证以及错误信息保存
 	 * @param rule 要执行的数据验证规则
 	 * @param request 通过该参数可以取得用户的请求参数
 	 * @param messageSource 所有的消息资源的文字提示信息
 	 */
-	public ActionValidationUtil(String rule,HttpServletRequest request,MessageSource messageSource) {
-		this.rule = rule ; 
+	public ActionValidationUtil(String rule, HttpServletRequest request, MessageSource messageSource) {
+		this.rule = rule ;
 		this.request = request ;
-		this.messageSource = messageSource ; 
-		this.handleValidator();  //构造方法里面直接就处理好所有的验证操作
+		this.messageSource = messageSource ;
+		this.handleValidator(); // 构造方法里面直接就处理好所有的验证操作
 	}
 	/**
-	 * 实现验证具体操作，根据指定的验证规则来获取验证数据以实现各个数据的检测处理
+	 * 实现验证的具体操作，根据指定的验证规则来获取验证数据以实现各个数据的检测处理
 	 */
 	private void handleValidator() {
 		String rulesResult [] = this.rule.split("\\|") ;	// 首先对全部的验证规则拆分
@@ -101,42 +99,43 @@ public class ActionValidationUtil {
 	}
 	/**
 	 * 验证字符串的数据是否为空（null和""）
-	 * @param str 字符串
-	 * @return
+	 * @param str 要验证的字符串数据
+	 * @return 如果不为空返回true，为空返回false
 	 */
 	private boolean validateString(String str) {
-		if(str == null || "".equals(str)) {
-			return false ; 
+		if (str == null || "".equals(str)) {
+			return false ;
 		}
-		return true ; 
+		return true ;
 	}
 	/**
 	 * 验证字符串的数据是否为空（null和""）
-	 * @param str 字符串
-	 * @return
+	 * @param str 要验证的字符串数据
+	 * @return 如果不为空返回true，为空返回false
 	 */
 	private boolean validateStringArray(String str[]) {
-		if(str == null || str.length == 0) {
-			return false ; 
-		}else { //验证里面的内容是否为空
-			for(int x=0 ; x<str.length ; x++) {
-				if(str[x] == null || "".equals(str[x])) {
-					return false ; 
+		if (str == null || str.length == 0) {
+			return false ;
+		} else {	// 验证里面的内容是否为空
+			for (int x = 0 ; x < str.length ; x ++) {
+				if (str[x] == null || "".equals(str[x])) {
+					return false ;
 				}
 			}
 		}
-		return true ; 
+		return true ;
 	}
+	
 	/**
 	 * 验证指定的字符串是否由数字所组成
 	 * @param str 字符串
-	 * @return
+	 * @return 如果全部由数字所组成返回true
 	 */
 	private boolean validateInt(String str) {
-		if(this.validateString(str)) { //通过验证
-			return str.matches("\\d+") ; 
+		if (this.validateString(str)) {	// 验证通过
+			return str.matches("\\d+") ;
 		}
-		return false ; 
+		return false ;
 	}
 	/**
 	 * 验证指定的字符串是否由数字所组成
@@ -149,72 +148,76 @@ public class ActionValidationUtil {
 		}
 		return false ;
 	}
+	/**
+	 * 验证指定的字符串是否由数字所组成
+	 * @param str 字符串
+	 * @return 如果全部由数字所组成返回true
+	 */
 	private boolean validateLongArray(String str[]) {
-		if(this.validateStringArray(str)) { //通过验证
-			for(int x=0 ; x<str.length ; x++) {
-				if(this.validateString(str[x])) {
-					if(!str[x].matches("\\d+")) { //没有验证通过
-						return false ; 
+		if (this.validateStringArray(str)) {	// 验证通过
+			for (int x = 0 ; x < str.length ; x ++) {
+				if (this.validateString(str[x])) {
+					if (!str[x].matches("\\d+")) {	// 没有验证通过
+						return false ;
 					}
-				}else { //有内容为空
-					return false ; 
+				} else {	// 有内容为空
+					return false ;
 				}
 			}
 		}
-		return false ; 
+		return false ;
 	}
 	/**
-	 * 验证指定的字符串是否由小数所组成
+	 * 验证指定的字符串是否由数字所组成
 	 * @param str 字符串
-	 * @return
+	 * @return 如果全部由数字所组成返回true
 	 */
 	private boolean validateDouble(String str) {
-		if(this.validateString(str)) { //通过验证
-			return str.matches("\\d+(\\.\\d+)") ; 
+		if (this.validateString(str)) {	// 验证通过
+			return str.matches("\\d+(\\.\\d+)") ;
 		}
-		return false ; 
+		return false ;
 	}
 	/**
-	 * 验证指定的字符串是否由日期格式
+	 * 验证指定的字符串是否为日期格式
 	 * @param str 字符串
-	 * @return
+	 * @return 如果全部由数字所组成返回true
 	 */
 	private boolean validateDate(String str) {
-		if(this.validateString(str)) { //通过验证
-			return str.matches("\\d{4}-\\d{2}-\\d{2}") ; 
+		if (this.validateString(str)) {	// 验证通过
+			return str.matches("\\d{4}-\\d{2}-\\d{2}") ;
 		}
-		return false ; 
+		return false ;
 	}
 	/**
-	 * 验证指定的字符串是否由日期时间格式
+	 * 验证指定的字符串是否为日期时间格式
 	 * @param str 字符串
-	 * @return
+	 * @return 如果全部由数字所组成返回true
 	 */
 	private boolean validateDatetime(String str) {
-		if(this.validateString(str)) { //通过验证
-			return str.matches("\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}") ; 
+		if (this.validateString(str)) {	// 验证通过
+			return str.matches("\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}") ;
 		}
-		return false ; 
+		return false ;
 	}
 	/**
-	 * 验证指定的字符串是否与指定的验证码相符合
+	 * 验证指定的字符串是与指定的验证码相符合
 	 * @param str 字符串
-	 * @return
+	 * @return 如果全部由数字所组成返回true
 	 */
 	private boolean validateRand(String str) {
-		String rand = (String)this.request.getSession().getAttribute("rand") ; 
-		if(this.validateString(str) && this.validateString(rand)) { //通过验证
-			return str.equalsIgnoreCase(rand) ; 
+		String rand = (String) this.request.getSession().getAttribute("rand") ;
+		if (this.validateString(str) && this.validateString(rand)) {	// 验证通过
+			return str.equalsIgnoreCase(rand) ;
 		}
-		return false ; 
+		return false ;
 	}
 	
-
 	/**
-	 * 获取全部错误信息，如果没有错误则集合的长度为0
-	 * @return
+	 * 获取全部的错误信息，如果没有错误则集合的长度为0
+	 * @return 错误内容
 	 */
-	public Map<String,String> getErrors(){
-		return errors ; 
+	public Map<String, String> getErrors() {
+		return errors;
 	}
 }

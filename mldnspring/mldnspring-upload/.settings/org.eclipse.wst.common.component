@@ -2,10 +2,9 @@
     <wb-module deploy-name="mldnspring-springmvc">
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/profile"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
         <property name="context-root" value="mldnspring-springmvc"/>
-        <property name="java-output-path" value="/mldnspring-springmvc/target/classes"/>
+        <property name="java-output-path" value="/mldnspring-upload/target/classes"/>
     </wb-module>
 </project-modules>

@@ -5,12 +5,18 @@ import java.util.Date;
 
 @SuppressWarnings("serial")
 public class News implements Serializable {
-	private Long nid ; 
-	private String title ; 
-	private Date pubdate ; 
-	private Double price ; 
-	private String note ; 
+	private Long nid ;
+	private String title ;
+	private Date pubdate ;
+	private Double price ;
+	private String note ;
 	private Integer readcount ;
+	public void setNote(String note) {
+		this.note = note;
+	}
+	public String getNote() {
+		return note;
+	}
 	public Long getNid() {
 		return nid;
 	}
@@ -35,17 +41,15 @@ public class News implements Serializable {
 	public void setPrice(Double price) {
 		this.price = price;
 	}
-	public String getNote() {
-		return note;
-	}
-	public void setNote(String note) {
-		this.note = note;
-	}
 	public Integer getReadcount() {
 		return readcount;
 	}
 	public void setReadcount(Integer readcount) {
 		this.readcount = readcount;
 	}
-	
+	@Override
+	public String toString() {
+		return "News [nid=" + nid + ", title=" + title + ", pubdate=" + pubdate + ", price=" + price + ", note=" + note
+				+ ", readcount=" + readcount + "]";
+	} 
 }

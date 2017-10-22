@@ -1,29 +1,26 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page pageEncoding="UTF-8"%>
+<%
+	request.setCharacterEncoding("UTF-8") ;
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ request.getContextPath() + "/";
+	String message_input_url = basePath + "pages/message/echo.action" ;
+%>
 <html>
 <head>
-<%
-	String basePath = request.getScheme() + "://" + 
-		request.getServerName() + ":" + request.getServerPort() + 
-		request.getContextPath() + "/" ;
-	String message_show = basePath + "/pages/message/echo.action "; 
-%>
-<base href="<%=basePath%>"/>
-<script type="text/javascript" src="js/pages/message/message_input.js"></script>
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
+	<base href="<%=basePath%>" />
+	<script type="text/javascript" src="mvcjs/pages/message/message_input.js"></script>
+	<link rel="stylesheet" type="text/css" href="mvccss/style.css">
+</head> 
 <body>
-	<form action="<%=message_show %>" >
-		<span class="alert-danger">请输入内容：</span><input type="text" id="msg" name="msg"/><br>
-		<span class="alert-danger">请选择:</span><input type="checkbox" id="tags" name="tags" value="政治">政治
-			 <input type="checkbox" id="tags" name="tags" value="经济">经济
-			 <input type="checkbox" id="tags" name="tags" value="文化">文化<br>
-			 <input type="submit" value="提交">
-			 <input type="reset" value="重置"><br>
-		<img src="images/hello.png">	 
-	</form>
+<form action="<%=message_input_url%>" method="post">
+	<span class="txt">请输入消息：</span>
+	<input type="text" name="msg" id="msg" value="www.mldn.cn"><br>
+	<span class="txt">消息标签：</span>
+		<input type="checkbox" name="tags" id="tags" value="政治">政治
+		<input type="checkbox" name="tags" id="tags" value="经济">经济
+		<input type="checkbox" name="tags" id="tags" value="文化">文化
+	<br><input type="submit" value="发送">
+	<img src="mvcimages/diaosi.jpg">
+</form>
 </body>
 </html>

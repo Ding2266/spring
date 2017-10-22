@@ -1,24 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
+<%@ page pageEncoding="UTF-8"%>
 <%
-	String basePath = request.getScheme() + "://" + 
-		request.getServerName() + ":" + request.getServerPort() + 
-		request.getContextPath() + "/" ;
+	request.setCharacterEncoding("UTF-8") ;
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ request.getContextPath() + "/";
 %>
-<base href="<%=basePath%>"/>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-	<h1>ECHO消息显示：${echoMessage}</h1>
-	<h1>选择的内容：
-	<c:forEach items="${echoTags}" var="tag">
-		${tag}
-	</c:forEach>
-	</h1>
-</body>
-</html>
+<base href="<%=basePath%>" />
+<h1>ECHO消息显示：${echoMessage}</h1> 
+<h1>ECHO消息显示：${echoTags}</h1> 

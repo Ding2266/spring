@@ -1,18 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page pageEncoding="UTF-8"%>
 <%
-	String basePath = request.getScheme() + "://" + 
-		request.getServerName() + ":" + request.getServerPort() + 
-		request.getContextPath() + "/" ;
-	String photo_input_url = basePath + "/pages/photo/upload.action "; 
+	request.setCharacterEncoding("UTF-8") ;
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ request.getContextPath() + "/";
 %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<base href="<%=basePath%>"/>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-</head>
+	<base href="<%=basePath%>" />
+</head> 
 <body>
-	<h1>对不起，程序出现了错误，请与管理员联系！！</h1>
+	<h1>对不起，程序出现了错误，如果问题依然存在，请与管理员联系。</h1>
 </body>
 </html>

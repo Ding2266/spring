@@ -5,9 +5,13 @@ import java.util.Date;
 
 @SuppressWarnings("serial")
 public class Dept implements Serializable {
-	private Long deptno ; 
-	private String dname; 
+	private Long deptno ;
+	private String dname ;
 	private Date createdate ;
+	@Override
+	public String toString() {
+		return "Dept [deptno=" + deptno + ", dname=" + dname + ", createdate=" + createdate + "]";
+	}
 	public Long getDeptno() {
 		return deptno;
 	}
@@ -26,9 +30,4 @@ public class Dept implements Serializable {
 	public void setCreatedate(Date createdate) {
 		this.createdate = createdate;
 	}
-	@Override
-	public String toString() {
-		return "Dept [deptno=" + deptno + ", dname=" + dname + ", createdate=" + createdate + "]";
-	} 
-	
 }

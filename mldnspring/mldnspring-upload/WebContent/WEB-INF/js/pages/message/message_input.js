@@ -1,3 +1,3 @@
-window.onload = function(){
-	console.log("****** 页面加载 ******") ; 
+window.onload = function() {
+	console.log("******** 页面加载 ***********") ;
 }
